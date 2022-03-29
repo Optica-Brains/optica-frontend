@@ -44,7 +44,7 @@ Version:
     v0.1.0
 
 Angular Version:
-    13.3.0 and above
+    13.3.0 and greater
 
 
 Usage
