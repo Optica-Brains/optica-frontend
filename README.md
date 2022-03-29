@@ -1,27 +1,63 @@
-# OpticaFrontend
+# OPTICA DELIVERIES FRONTEND
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+**OPTICA DELIVERIES FRONTEND** This is a frontend(web app) for the Optica Deliveries 
 
-## Development server
+## REQUIREMENTS
+### Prerequisites
+* node v14.17.4 and above
+* npm 6.14.14 and above
+* Angular 13.3.0
+* Then install the various packages from package.json `npm install`
+* To run thee app use `ng serve --open`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ENVIRONMENT VARIABLES
+```
+[VERSION]
+OPTICAWEB_VERSION=v0.1.0
 
-## Code scaffolding
+[ENVIRONMENT_DETAILS]
+ENVIRONMENT_NAME=Optica
+ENVIRONMENT_COLOR=
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[DOMAIN]
+CURRENT_SITE_DOMAIN=
 
-## Build
+[SENTRY]
+SENTRY_DNS=
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+[COMMON_API_CREDS]
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Meta
+----
+Author:
+   * **Joseph Wambua** - *Initial work* - [mutuajoseph](https://github.com/mutuajoseph)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Status:
+    maintained, and is currently in development
+
+Version:
+    v0.1.0
+
+Angular Version:
+    13.3.0 and above
+
+
+Usage
+-----
+
+
+## License
+This project is licensed under the MIT License
+
+Documentation
+-------------
+You can see the documentation over at **Read the Docs**
+
+Resources
+-------------
+https://angular.io/docs
