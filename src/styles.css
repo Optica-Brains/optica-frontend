@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;900&display=swap');
+@import "~bootstrap/dist/css/bootstrap.css";
+:root{
+    --primary: #506E9C !important;
+    --secondary: #ECE531;
+    --bs-body-font-family: 'Nunito', sans-serif;
+    --bs-body-bg: #fff;
+}
+
+/* Global styles */
+
+body{
+    font-family: var(--bs-body-font-family);
+    background: var(--bs-body-bg);
+}
