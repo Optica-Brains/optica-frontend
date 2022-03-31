@@ -8,19 +8,22 @@ import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-
+import { PagesComponent } from './pages/pages.component';
+import { PagesModule } from './pages/pages.module';
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
