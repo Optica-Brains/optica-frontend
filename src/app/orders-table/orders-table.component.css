@@ -29,3 +29,12 @@ thead.schema-names {
     background-color: #F3F6F9;
     /* border-radius: 30px !important; */
 }
+
+p.orders-title {
+  font-weight: 600;
+}
+
+p.recent-orders {
+  font-weight: 500;
+  margin-top: 5vh;
+}
