@@ -5,10 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
