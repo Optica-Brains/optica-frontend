@@ -1,0 +1,26 @@
+div.container-fluid {
+  padding: 4px 10px;
+  margin: 5%;
+  box-sizing: border-box;
+  font-family: var(--bs-body-font-family);
+}
+
+button.view-order-btn {
+  background-color: var(--secondary);
+  font-weight: 550;
+}
+
+td.delivered-badge {
+    background-color: #C9F6CE;
+    color: #448007;
+}
+
+td.inprogress-badge {
+    background-color: #FDECCC;
+    color: #965F17;
+}
+
+thead.schema-names {
+    background-color: #F3F6F9;
+    /* border-radius: 30px !important; */
+}
