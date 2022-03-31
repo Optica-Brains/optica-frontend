@@ -1,6 +1,6 @@
 div.container-fluid {
   padding: 4px 10px;
-  margin: 5%;
+  margin: 3%;
   box-sizing: border-box;
   font-family: var(--bs-body-font-family);
 }
@@ -18,6 +18,11 @@ td.delivered-badge {
 td.inprogress-badge {
     background-color: #FDECCC;
     color: #965F17;
+}
+
+td.dispatched-badge {
+  background-color: #CFE0FC;
+  color: #094CC4;
 }
 
 thead.schema-names {
