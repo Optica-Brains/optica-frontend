@@ -5,10 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { OrdersTableComponent } from './orders-table/orders-table.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OrdersTableComponent
   ],
   imports: [
     BrowserModule,
