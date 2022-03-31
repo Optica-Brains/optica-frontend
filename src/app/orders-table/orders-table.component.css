@@ -3,6 +3,7 @@ div.container-fluid {
   margin: 3%;
   box-sizing: border-box;
   font-family: var(--bs-body-font-family);
+  /* margin-left: 20%; */
 }
 
 button.view-order-btn {
@@ -11,23 +12,23 @@ button.view-order-btn {
 }
 
 td.delivered-badge {
-    background-color: #C9F6CE;
-    color: #448007;
+  background-color: #c9f6ce;
+  color: #448007;
 }
 
 td.inprogress-badge {
-    background-color: #FDECCC;
-    color: #965F17;
+  background-color: #fdeccc;
+  color: #965f17;
 }
 
 td.dispatched-badge {
-  background-color: #CFE0FC;
-  color: #094CC4;
+  background-color: #cfe0fc;
+  color: #094cc4;
 }
 
 thead.schema-names {
-    background-color: #F3F6F9;
-    /* border-radius: 30px !important; */
+  background-color: #f3f6f9;
+  /* border-radius: 30px !important; */
 }
 
 p.orders-title {
@@ -37,4 +38,29 @@ p.orders-title {
 p.recent-orders {
   font-weight: 500;
   margin-top: 5vh;
+}
+
+table.orders-table {
+  width: 70%;
+}
+
+div.branch-user {
+  display: flex;
+  padding: 0;
+}
+
+.username, .branch {
+  display: flex;
+}
+
+img.user-icon {
+  height: 4vh;
+}
+
+img.location-icon {
+  height: 4vh;
+}
+
+p.user-name {
+  margin-left: 4%;
 }
