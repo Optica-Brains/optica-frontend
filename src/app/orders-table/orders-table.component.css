@@ -1,9 +1,13 @@
+div {
+  width: fit-content;
+}
+
 div.container-fluid {
   padding: 4px 10px;
   margin: 3%;
   box-sizing: border-box;
   font-family: var(--bs-body-font-family);
-  /* margin-left: 20%; */
+  margin-left: 15%;
 }
 
 button.view-order-btn {
@@ -28,7 +32,14 @@ td.dispatched-badge {
 
 thead.schema-names {
   background-color: #f3f6f9;
+  /* display: inline-flex; */
+  /* margin-right: 10% !important; */
+  /* padding-right: 10% !important; */
   /* border-radius: 30px !important; */
+}
+
+th.fw-normal {
+  display: inline-flex;
 }
 
 p.orders-title {
@@ -44,12 +55,21 @@ table.orders-table {
   width: 70%;
 }
 
+div.section-header-container {
+  width: 100%;
+}
+
 div.branch-user {
   display: flex;
   padding: 0;
 }
 
-.username, .branch {
+div.branch-user div {
+  padding: 2vw;
+}
+
+div.username,
+div.branch {
   display: flex;
 }
 
@@ -58,9 +78,5 @@ img.user-icon {
 }
 
 img.location-icon {
-  height: 4vh;
-}
-
-p.user-name {
-  margin-left: 4%;
+  height: 3vh;
 }
