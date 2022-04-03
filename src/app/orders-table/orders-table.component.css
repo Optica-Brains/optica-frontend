@@ -1,5 +1,5 @@
 div {
-  width: fit-content;
+  width: auto;
 }
 
 div.container-fluid {
@@ -7,7 +7,6 @@ div.container-fluid {
   margin: 3%;
   box-sizing: border-box;
   font-family: var(--bs-body-font-family);
-  margin-left: 15%;
 }
 
 button.view-order-btn {
@@ -32,18 +31,15 @@ td.dispatched-badge {
 
 thead.schema-names {
   background-color: #f3f6f9;
-  /* display: inline-flex; */
-  /* margin-right: 10% !important; */
-  /* padding-right: 10% !important; */
-  /* border-radius: 30px !important; */
 }
 
-th.fw-normal {
-  display: inline-flex;
+.action-body-container {
+  margin-top: -3%;
 }
 
 p.orders-title {
   font-weight: 600;
+  margin-top: 6%;
 }
 
 p.recent-orders {
@@ -62,6 +58,8 @@ div.section-header-container {
 div.branch-user {
   display: flex;
   padding: 0;
+  float: right;
+  margin-top: 2vw;
 }
 
 div.branch-user div {
@@ -79,4 +77,9 @@ img.user-icon {
 
 img.location-icon {
   height: 3vh;
+}
+
+.badge {
+  margin-top: 10px;
+  display: block !important;
 }
