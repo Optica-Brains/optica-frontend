@@ -72,7 +72,7 @@ div.branch {
 }
 
 img.user-icon {
-  height: 4vh;
+  height: 3vh;
 }
 
 img.location-icon {
@@ -81,5 +81,5 @@ img.location-icon {
 
 .badge {
   margin-top: 10px;
-  display: block !important;
+  display: block;
 }
