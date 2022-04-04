@@ -55,31 +55,11 @@ div.section-header-container {
   width: 100%;
 }
 
-div.branch-user {
-  display: flex;
-  padding: 0;
-  float: right;
-  margin-top: 2vw;
-}
-
-div.branch-user div {
-  padding: 2vw;
-}
-
-div.username,
-div.branch {
-  display: flex;
-}
-
-img.user-icon {
-  height: 3vh;
-}
-
-img.location-icon {
-  height: 3vh;
-}
-
-.badge {
+td.badge {
   margin-top: 10px;
-  display: block;
+  /*
+  This is necessary because important
+  is used in the css dependency chain
+  */
+  display: block !important;
 }
