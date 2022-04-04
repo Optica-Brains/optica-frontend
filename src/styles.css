@@ -9,8 +9,9 @@
 }
 
 /* Global styles */
-
+html,
 body{
     font-family: var(--bs-body-font-family);
     background: var(--bs-body-bg);
+    height: 100%;
 }
