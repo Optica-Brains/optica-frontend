@@ -1,0 +1,24 @@
+<div class="flex-column flex-shrink-0 py-3 bg-white sidebar h-100 d-none d-md-flex" style="width: 250px;">
+    <div class="mb-5">
+        <a href="/"
+            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none d-flex justify-content-center">
+            <img src="assets/images/logo.png" alt="" class="logo">
+        </a>
+    </div>
+    <ul class="nav nav-pills overflow-y-auto mb-auto">
+        <li class="nav-item pb-2 w-100" *ngFor="let menuItem of menuItems">
+            <a [routerLink]="menuItem.url" class="nav-link d-flex align-items-center bg-transparent"
+                [class]="{active: currentUrl(menuItem.url), 'link-dark': !currentUrl(menuItem.url)}">
+                <span class="material-icons pe-2">{{menuItem.icon}}</span>
+                {{menuItem.title}}
+            </a>
+        </li>
+    </ul>
+    <div class="postion-relative bottom-0">
+        <div class="px-3">
+            <a href="#" class="btn w-100 btn-logout fw-bold">
+                Logout
+            </a>
+        </div>
+    </div>
+</div>
