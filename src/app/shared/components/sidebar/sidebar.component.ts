@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
     {
       title: "Orders",
       icon: "star_outline",
-      url: "/"
+      url: "/orders"
     },
     {
       title: "Trips",
