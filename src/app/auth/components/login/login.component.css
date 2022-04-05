@@ -1,6 +1,11 @@
 .btn {
-    color: #506E9C;
+  color: #506E9C;
   background-color: #ECE531;
   text-align: center;
-  text-align: center;    
+  text-align: center;
+}
+
+button:focus,
+button:active {
+  box-shadow: none !important;
 }

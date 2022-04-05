@@ -1,31 +1,32 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="login.component.css">
-
-<body>
-    <div class="card mx-auto shadow p-3 mb-5 bg-white rounded" style="width: 30%; margin-top: 12%;">
-    <article class="card-body" style="border-radius: 35px;">
-    <h1 class="card-title mb-4 mt-1 text-center" style="color: #506E9C;">Login</h1>
-    <form>
-        <div class="form-group">
-            <label>Email</label>
-            <input name="" class="form-control" placeholder="john@doe.com" type="email">
-        </div>
-        <div class="form-group"> 
-            <label>Your password</label>
-            <input class="form-control" placeholder="******" type="password">
-        </div>
-        <div class="form-group"> 
-        <div class="checkbox">
-          <label> <input type="checkbox"> Remember Me </label>
-          <a class="float-right" href="#">Forgot Password?</a>
-        </div> 
-        </div>  
-        <div class="text-center">
-            <button type="submit" class="btn w-100 btn-logout fw-bold"> Login  </button>
-        </div>                                                           
-    </form>
-    </article>
+<div class="row justify-content-center align-items-center h-100 px-4">
+    <div class="card mx-auto shadow p-3 mb-5 bg-white rounded col-md-6 col-lg-5 col-sm-8">
+        <article class="card-body" style="border-radius: 35px;">
+            <h1 class="card-title mb-4 mt-1 text-center" style="color: #506E9C;">Login</h1>
+            <form method="POST">
+                <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{error}}
+                    <button type="button" class="btn-close no-outline" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input name="email" [(ngModel)]="email" class="form-control" placeholder="john@doe.com" type="email"
+                        required="">
+                </div>
+                <div class="form-group mt-1">
+                    <label class="form-label">Your password</label>
+                    <input class="form-control" name="password" [(ngModel)]="password" placeholder="******"
+                        type="password" required="">
+                </div>
+                <div class="form-group mt-3">
+                    <div class="checkbox">
+                        <label class="form-label"> <input type="checkbox"> Remember Me </label>
+                        <a class="float-end" href="#">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" (click)="handleLogin()" class="btn w-100 btn-logout fw-bold"> Login </button>
+                </div>
+            </form>
+        </article>
     </div>
-</body>
+</div>
