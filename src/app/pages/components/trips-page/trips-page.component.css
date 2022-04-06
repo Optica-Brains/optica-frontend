@@ -1,0 +1,65 @@
+div {
+    width: auto;
+}
+
+div.container-fluid {
+    padding: 4px 10px;
+    margin: 3%;
+    box-sizing: border-box;
+    font-family: var(--bs-body-font-family);
+}
+
+button.view-trip-btn {
+    background-color: var(--secondary);
+    font-weight: 550;
+}
+
+td.delivered-badge {
+    background-color: #c9f6ce;
+    color: #448007;
+}
+
+td.inprogress-badge {
+    background-color: #fdeccc;
+    color: #965f17;
+}
+
+td.dispatched-badge {
+    background-color: #cfe0fc;
+    color: #094cc4;
+}
+
+thead.schema-names {
+    background-color: #f3f6f9;
+}
+
+.action-body-container {
+    margin-top: -3%;
+}
+
+p.trips-title {
+    font-weight: 600;
+    margin-top: 6%;
+}
+
+p.recent-trips {
+    font-weight: 500;
+    margin-top: 5vh;
+}
+
+table.trips-table {
+    width: 100%;
+}
+
+div.section-header-container {
+    width: 100%;
+}
+
+td.badge {
+    margin-top: 10px;
+    /*
+  This is necessary because important
+  is used in the css dependency chain
+  */
+    display: block !important;
+}
