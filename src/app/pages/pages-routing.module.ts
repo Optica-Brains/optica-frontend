@@ -1,3 +1,4 @@
+import { AuthGuard } from '../core/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './pages.component';
@@ -9,6 +10,8 @@ const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: 'orders',

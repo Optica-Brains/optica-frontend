@@ -14,7 +14,7 @@
                     <div class="d-flex mt-2 h-100 text-dark">
                         <span class="material-icons">location_on</span>
                         <h5 class="ps-2 mb-0">
-                            Branch Name
+                            {{branch.branch_name}}
                         </h5>
                     </div>
                 </li>
@@ -25,7 +25,7 @@
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://ui-avatars.com/api/?name=John+Doe&amp;background=49c5b6&amp;color=fff" alt=""
                             class="avatar rounded-circle img-30">
-                        <span class="ps-2 fw-bold">John Doe</span>
+                        <span class="ps-2 fw-bold">{{user.full_name}}</span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end bg-primary" aria-labelledby="navbarDropdown"

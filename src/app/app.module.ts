@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,7 +29,8 @@ import { TripsPageComponent } from './pages/components/trips-page/trips-page.com
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    PagesModule
+    PagesModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
