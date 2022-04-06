@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
     {
       title: "Trips",
       icon: "pedal_bike",
-      url: "/"
+      url: "/trips"
     },
   ]
 
