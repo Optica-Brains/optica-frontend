@@ -1,3 +1,3 @@
 export class TokenObject {
-    constructor(public token:String, public refresh:String){}
+    constructor(public access:string, public refresh:string){}
 }

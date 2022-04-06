@@ -15,9 +15,9 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let tokenObject = this.authService.getLoggedUserToken();
-    if (tokenObject && tokenObject.token) { 
+    if (tokenObject && tokenObject.access) { 
       request = request.clone({ setHeaders:
-            { Authorization: `Bearer ${tokenObject.token}` } }); } 
+            { Authorization: `Bearer ${tokenObject.access}` } }); } 
     return next.handle(request);
   }
 }

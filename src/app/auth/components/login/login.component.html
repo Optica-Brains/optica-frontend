@@ -1,4 +1,4 @@
-<div class="row justify-content-center align-items-center h-100 px-4">
+<div class="row justify-content-center align-items-center h-100 mx-3 mx-md-0">
     <div class="card mx-auto shadow p-3 mb-5 bg-white rounded col-md-6 col-lg-5 col-sm-8">
         <article class="card-body" style="border-radius: 35px;">
             <h1 class="card-title mb-4 mt-1 text-center" style="color: #506E9C;">Login</h1>
@@ -24,7 +24,9 @@
                     </div>
                 </div>
                 <div class="text-center mt-3">
-                    <button type="submit" (click)="handleLogin()" class="btn w-100 btn-logout fw-bold"> Login </button>
+                    <button type="submit" (click)="handleLogin()" class="btn w-100 btn-logout fw-bold" [disabled]="loading"> 
+                        Login
+                    </button>
                 </div>
             </form>
         </article>

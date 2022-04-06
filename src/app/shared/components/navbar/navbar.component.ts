@@ -1,3 +1,6 @@
+import { Branch } from './../../../models/branch.model';
+import { User } from './../../../models/user.model';
+import { AuthService } from './../../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  public branch!: Branch;
+
+  public user!: User;
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.user = this.authService.getLoggedUserDetails()
+    this.branch = this.user.branch
   }
+
+
 
 }

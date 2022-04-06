@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './../../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,23 +17,35 @@ export class LoginComponent implements OnInit {
 
   public error: string = "";
 
-  constructor(private authService: AuthService, private http: HttpClient) { }
+  public loading = false;
+
+  constructor(private authService: AuthService, private http: HttpClient, private router: Router) {
+    if (this.authService.isUserAuthenticated()) {
+      this.router.navigate(['/'], {state: {message: 'Sign in was successful'}});
+    }
+  }
 
   ngOnInit(): void { }
 
   public handleLogin(): void {
+    this.error = ''
+    this.loading = true;
+
     if (!this.email || !this.password) {
       this.error = "Please fill in all the fields"
       return
     }
 
     this.authService.login(this.email, this.password)
-      .pipe(catchError(error => {        
+      .pipe(catchError(error => {
         this.error = error
         return of({})
       }))
       .subscribe(token => {
-        console.log(token);
+        this.loading = false;
+        if(this.authService.isUserAuthenticated()){
+          this.router.navigate(['/'])
+        }
       })
   }
 
