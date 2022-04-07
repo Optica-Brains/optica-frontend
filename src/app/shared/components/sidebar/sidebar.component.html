@@ -1,5 +1,11 @@
-<div class="flex-column flex-shrink-0 py-3 bg-white sidebar h-100 d-none d-md-flex" style="width: 250px;">
+<div class="flex-column flex-shrink-0 py-3 bg-white sidebar h-100" [class]="{'d-none': !open, 'd-flex': open}"
+    style="width: 250px;">
     <div class="mb-5">
+        <div class="text-end pe-2 mb-2">
+            <button class="navbar-toggler border-0" title="open sidebar" (click)="closeSidebar()">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
         <a href="/"
             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none d-flex justify-content-center">
             <img src="assets/images/logo.png" alt="" class="logo">

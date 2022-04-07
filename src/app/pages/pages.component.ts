@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pages',
@@ -8,13 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-  constructor(private router: Router) { 
-    const navigation: any = this.router.getCurrentNavigation();
-    const state = navigation.extras.state as {data: string};
-    console.log(navigation);
- }
+  public innerWidth!: any;
 
-  ngOnInit(): void {
+  public sidebarOpen: boolean = true;
+
+  public sidebarHideWidth: number = 768;
+
+  constructor(private router: Router) {
+    const navigation: any = this.router.getCurrentNavigation();
+    const state = navigation.extras.state as { data: string };
+    console.log(navigation);
   }
 
+  ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+    this.sidebarCheckWidth()
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerWidth = window.innerWidth;
+    this.sidebarCheckWidth()
+  }
+
+  public toggleSidebar(state=!this.sidebarOpen) {
+    console.log(state);
+    
+    this.sidebarOpen = state
+  }
+
+  sidebarCheckWidth(){
+    this.toggleSidebar(this.innerWidth > this.sidebarHideWidth)
+  }
 }

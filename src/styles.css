@@ -15,3 +15,8 @@ body{
     background: var(--bs-body-bg);
     height: 100%;
 }
+
+button:active,
+button:focus{
+    box-shadow: none !important;
+}

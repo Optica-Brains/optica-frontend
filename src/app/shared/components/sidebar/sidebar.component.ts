@@ -1,5 +1,5 @@
 import { AuthService } from './../../../services/auth/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
+  @Input() open:boolean = true;
+
+  @Output() sidebarCloseEvent = new EventEmitter();
 
   menuItems = [
     {
@@ -42,6 +45,10 @@ export class SidebarComponent implements OnInit {
   logout(){
     this.authService.logout()
     this.router.navigate(['/login'])
+  }
+
+  closeSidebar(){
+    this.sidebarCloseEvent.emit()
   }
 
 }
