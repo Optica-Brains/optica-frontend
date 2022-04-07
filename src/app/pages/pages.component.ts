@@ -31,9 +31,7 @@ export class PagesComponent implements OnInit {
     this.sidebarCheckWidth()
   }
 
-  public toggleSidebar(state=!this.sidebarOpen) {
-    console.log(state);
-    
+  public toggleSidebar(state=!this.sidebarOpen) {    
     this.sidebarOpen = state
   }
 

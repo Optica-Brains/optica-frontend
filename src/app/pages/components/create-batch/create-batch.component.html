@@ -1,0 +1,52 @@
+<div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Batch</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{error}}
+              <button type="button" class="btn-close no-outline" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="form-group">
+              <label for="" class="form-label fw-bold">
+                Destination
+              </label>
+              <select name="branch_to" class="form-select" [(ngModel)]="branch_to">
+                <option value="" selected disabled>--select branch--</option>
+                <option [value]="branch.id" *ngFor="let branch of branches">{{branch.branch_name}}</option>
+              </select>
+            </div>
+
+
+            <div class="form-group mt-2">
+              <label for="" class="form-label fw-bold">
+                Messenger
+              </label>
+              <select name="messenger" class="form-select" [(ngModel)]="messenger">
+                <option value="" selected disabled>--select messenger--</option>
+                <option [value]="messenger.id" *ngFor="let messenger of messengers">{{messenger.full_name}}</option>
+              </select>
+            </div>
+
+            <div class="form-group mt-2">
+              <label for="" class="form-label fw-bold">
+                Order number(s)
+              </label>
+              <textarea name="orders" rows="5" [(ngModel)]="orders" class="form-control"></textarea>
+              <small class="feedback">
+                comma separated order numbers eg #12344-34,#233234
+              </small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary btn-add" (click)="submitBatch()">Add batch</button>
+        </div>
+      </div>
+    </div>
+  </div>
