@@ -11,13 +11,22 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private authService:AuthService) {}
+  constructor(private authService: AuthService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let tokenObject = this.authService.getLoggedUserToken();
-    if (tokenObject && tokenObject.access) { 
-      request = request.clone({ setHeaders:
-            { Authorization: `Bearer ${tokenObject.access}` } }); } 
+    if (this.authService.isUserAuthenticated()) {
+      let tokenObject = this.authService.getLoggedUserToken();
+      if (tokenObject && tokenObject.access) {
+        request = request.clone({
+          setHeaders:
+            { Authorization: `Bearer ${tokenObject.access}` }
+        });
+      }
+      request = request.clone({
+        setHeaders:
+          { 'Content-Type': 'application/json' }
+      });
+    }
     return next.handle(request);
   }
 }

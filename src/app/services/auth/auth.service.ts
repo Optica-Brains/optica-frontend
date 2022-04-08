@@ -32,7 +32,7 @@ export class AuthService {
           errorMsg = `There was an error logging you in`;
         } else if (error instanceof HttpErrorResponse) {
           errorMsg = "You provided incorrect login credentials";
-        }
+        }        
 
         return throwError(errorMsg);
       }))

@@ -33,15 +33,17 @@ export class LoginComponent implements OnInit {
 
     if (!this.email || !this.password) {
       this.error = "Please fill in all the fields"
+      this.loading = false
       return
     }
 
     this.authService.login(this.email, this.password)
-      .pipe(catchError(error => {
+      .pipe(catchError(error => {        
         this.error = error
+        this.loading = false
         return of({})
       }))
-      .subscribe(token => {
+      .subscribe(() => {
         this.loading = false;
         if(this.authService.isUserAuthenticated()){
           this.router.navigate(['/'])
