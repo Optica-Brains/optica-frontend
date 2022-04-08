@@ -1,3 +1,5 @@
+import { Batch } from './../../models/batch.model';
+import { Branch } from './../../models/branch.model';
 import { environment } from './../../../environments/environment';
 import { map, catchError, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -10,15 +12,26 @@ export class BatchesService {
 
   constructor(private http: HttpClient) { }
 
-  createBatch(branch_to: number, messenger: number, orders: object) {
+  createBatch(branch_to_id: number, messenger_id: number, orders: object, branch_from_id:number) {
     return this.http.post(`${environment.apiUrl}/api/batches/`,
-      { branch_to, messenger, orders, batch_number: this.generateBatchNumber() })
+      { branch_from_id, branch_to_id, messenger_id, batch_orders: orders, batch_number: this.generateBatchNumber() })
       .pipe(catchError(error => {
         return throwError(`There was an error creating the batch`);
       }))
   }
 
-  fetchBatches(filterBranch?: number) {
+  fetchBatches(filterBranch?: string) {
+    return this.http.get<Batch[]>(`${environment.apiUrl}/api/batches/`)
+    .pipe(map(batches => {
+      if(filterBranch){
+        
+        batches = batches.filter(batch => batch.branch_from?.id == filterBranch || batch.branch_to?.id == filterBranch)
+      }
+      return batches
+    }))
+      .pipe(catchError(error => {
+        return throwError(`There was an error fetching batches`);
+      }))
 
   }
 

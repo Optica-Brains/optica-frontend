@@ -1,3 +1,4 @@
+import { User } from './user.model';
 export class Branch{
-    constructor(public id:number, public branch_name:any, public branch_location:any){}
+    constructor(public id:any, public branch_name:any, public branch_location:any){}
 }

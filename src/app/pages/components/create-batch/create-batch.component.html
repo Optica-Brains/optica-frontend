@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="createBatchModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -44,7 +44,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" #closebutton data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary btn-add" (click)="submitBatch()">Add batch</button>
         </div>
       </div>

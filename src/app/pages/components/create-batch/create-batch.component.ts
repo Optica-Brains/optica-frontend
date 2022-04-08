@@ -1,3 +1,4 @@
+import { Batch } from './../../../models/batch.model';
 import { BatchesService } from './../../../services/batches/batches.service';
 import { BranchesService } from './../../../services/branches/branches.service';
 import { Branch } from './../../../models/branch.model';
@@ -5,7 +6,7 @@ import { AuthService } from './../../../services/auth/auth.service';
 import { User } from './../../../models/user.model';
 import { catchError, of } from 'rxjs';
 import { UsersService } from './../../../services/users/users.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-create-batch',
@@ -13,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-batch.component.css']
 })
 export class CreateBatchComponent implements OnInit {
+  @ViewChild('closebutton') closebutton!: ElementRef;
 
   public messengers: User[] = [];
   public branches: Branch[] = [];
@@ -22,7 +24,9 @@ export class CreateBatchComponent implements OnInit {
   public messenger!: any;
   public orders!: string;
 
-  public error:string = '';
+  public error: string = '';
+
+  @Output() addedBatchEmitter = new EventEmitter<any>();
 
   constructor(private usersService: UsersService,
     private authService: AuthService,
@@ -34,7 +38,6 @@ export class CreateBatchComponent implements OnInit {
     this.userBranch = this.authService.getLoggedUserDetails().branch
     this.fetchMessangers()
     this.fetchBranches()
-
   }
 
   fetchMessangers() {
@@ -64,20 +67,33 @@ export class CreateBatchComponent implements OnInit {
   submitBatch() {
     this.error = ''
     if (this.branch_to && this.messenger && this.orders) {
-      const orderArray = this.orders.split(',')
-      this.batchService.createBatch(+this.branch_to, +this.messenger, orderArray)
+      const orderArray = this.orders.split(',').map(item => ({ "order_number": item }))
+      this.batchService.createBatch(+this.branch_to, +this.messenger, orderArray, this.authService.getLoggedUserDetails().branch.id)
         .pipe(catchError(error => {
           this.error = error
 
-          return of({})
+          return of()
         }))
         .subscribe(batch => {
-          console.log(batch);
-          
+          this.clearForm()
+          this.closeModal()
+          if (typeof batch == 'object') {
+            this.addedBatchEmitter.emit(batch)
+          }
         })
     } else {
       this.error = "Please fill in all the fields"
     }
+  }
+
+  closeModal() {
+    this.closebutton.nativeElement.click();
+  }
+
+  clearForm() {
+    this.messenger = '';
+    this.branch_to = '';
+    this.orders = ''
   }
 
 }
