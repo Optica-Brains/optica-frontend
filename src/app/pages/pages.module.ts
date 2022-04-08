@@ -6,10 +6,12 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateBatchComponent } from './components/create-batch/create-batch.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    CreateBatchComponent
+    CreateBatchComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
