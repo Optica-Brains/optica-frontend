@@ -4,7 +4,7 @@ import { AuthService } from './../../../services/auth/auth.service';
 import { Branch } from './../../../models/branch.model';
 import { BatchesService } from './../../../services/batches/batches.service';
 import { Component, OnInit } from '@angular/core';
-
+import { Singlebatch } from 'src/app/models/singlebatch';
 @Component({
   selector: 'app-orders-table',
   templateUrl: './orders-table.component.html',
@@ -15,7 +15,7 @@ export class OrdersTableComponent implements OnInit {
   public loading: boolean = false;
   public userBranch!: Branch;
   public batches!: Batch[];
-  // public singlebatch!: SingleBatch[];
+  public singlebatch: Singlebatch[] = [];
 
   batch_statuses : any = {
     delivered: {
@@ -54,15 +54,12 @@ export class OrdersTableComponent implements OnInit {
     this.batches.unshift(batch)
   }
 
-  // this
   fetchSingleBatch(id: number) {
-    console.log(id)
     this.batchService.getSingleBatch(id)
     .subscribe((response:any) => {
-      console.log(response)
-      this.batches.push(response)
+      this.singlebatch.push(response)
+      console.log(this.singlebatch);
     })
   }
-  // end
 
 }
