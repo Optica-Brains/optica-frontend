@@ -15,6 +15,7 @@ export class OrdersTableComponent implements OnInit {
   public loading: boolean = false;
   public userBranch!: Branch;
   public batches!: Batch[];
+  // public singlebatch!: SingleBatch[];
 
   batch_statuses : any = {
     delivered: {
@@ -52,5 +53,16 @@ export class OrdersTableComponent implements OnInit {
   addBatch(batch:any){
     this.batches.unshift(batch)
   }
+
+  // this
+  fetchSingleBatch(id: number) {
+    console.log(id)
+    this.batchService.getSingleBatch(id)
+    .subscribe((response:any) => {
+      console.log(response)
+      this.batches.push(response)
+    })
+  }
+  // end
 
 }

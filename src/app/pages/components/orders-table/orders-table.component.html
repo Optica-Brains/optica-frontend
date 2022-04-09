@@ -9,6 +9,26 @@
         </button>
     </div>
 
+    <!-- This -->
+    <div class="modal fade modal-dialog modal-dialog-scrollable" id="batchDetailModal" tabindex="-1"
+        aria-labelledby="batchDetailModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="batchDetailModalLabel">Batch Detail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end -->
+
     <div class="container-fluid table-responsive">
         <table class="table table-borderless text-center orders-table">
             <thead class="schema-names">
@@ -37,7 +57,9 @@
                         <td class="fw-bold">{{batch.delivery_time|date:'HH:mm'}}</td>
                         <td class="fw-bold">{{batch.branch_staff?.full_name}}</td>
                         <td class="badge rounded-pill d-inline delivered" [class]="batch_statuses[batch.status]?.class">{{batch_statuses[batch.status]?.title}}</td>
-                        <td><button type="submit" class="btn view-order-btn">View Batch</button></td>
+                        <!-- this -->
+                        <td><button type="submit" data-bs-toggle="modal" data-bs-target="#batchDetailModal" id="viewDetailBtn" (click)="fetchSingleBatch(batch.id)" class="btn view-order-btn">View Batch</button></td>
+                        <!-- end -->
                     </tr>
                 </ng-container>
                 <ng-template #other>

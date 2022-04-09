@@ -41,4 +41,13 @@ export class BatchesService {
     // format
     return [now.slice(0, 4), now.slice(4, 10)].join('-')
   }
+
+  // this
+  getSingleBatch(id: number) {
+    return this.http.get<Batch[]>(`${environment.apiUrl}/api/batches/${id}/`)
+    .pipe(catchError(error => {
+      return throwError(`There was an error fetching a batch`)
+    }))
+  }
+  // end
 }
