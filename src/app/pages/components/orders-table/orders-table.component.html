@@ -18,9 +18,17 @@
                         <h5 class="modal-title" id="batchDetailModalLabel"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <ng-container *ngIf="!singleBatchLoading; else other">
                     <div class="modal-body">
-                        <!-- {{batch.batch_number}} -->
+                        {{batch.batch_number}}
+                        {{batch.messenger?.email}}
+                        <div *ngFor="let single of batch.batch_orders">
+                            <li>
+                                <!-- {{single.}} -->
+                            </li>
+                        </div>
                     </div>
+                    </ng-container>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
