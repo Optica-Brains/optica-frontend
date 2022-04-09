@@ -44,7 +44,7 @@ export class BatchesService {
   }
 
   getSingleBatch(id: number) {
-    return this.http.get<Singlebatch[]>(`${environment.apiUrl}/api/batches/${id}/`)
+    return this.http.get<Batch>(`${environment.apiUrl}/api/batches/${id}/`)
     .pipe(catchError(error => {
       return throwError(`There was an error fetching a batch`)
     }))

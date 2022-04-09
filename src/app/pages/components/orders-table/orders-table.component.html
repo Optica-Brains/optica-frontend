@@ -9,7 +9,6 @@
         </button>
     </div>
 
-    <div *ngFor="let single of singlebatch">
         <div class="modal fade modal-dialog modal-dialog-scrollable" id="batchDetailModal" tabindex="-1"
             aria-labelledby="batchDetailModal" aria-hidden="true">
             <div class="modal-dialog">
@@ -20,7 +19,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        {{single.batch_number}}
+                        <!-- {{batch.batch_number}} -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -28,7 +27,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="container-fluid table-responsive">
         <table class="table table-borderless text-center orders-table">
