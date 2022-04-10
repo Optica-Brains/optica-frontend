@@ -25,9 +25,9 @@ export class SidebarComponent implements OnInit {
       url: "/batches"
     },
     {
-      title: "Trips",
-      icon: "pedal_bike",
-      url: "/trips"
+      title: "Users",
+      icon: "group",
+      url: "/users"
     },
   ]
 
