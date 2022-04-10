@@ -6,10 +6,12 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateBatchComponent } from './components/create-batch/create-batch.component';
+import { UserRoleDirective } from './directives/user-role.directive';
 
 @NgModule({
   declarations: [
-    CreateBatchComponent
+    CreateBatchComponent,
+    UserRoleDirective
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { CreateBatchComponent } from './components/create-batch/create-batch.com
     FormsModule
   ],
   exports: [
-    CreateBatchComponent
+    CreateBatchComponent,
+    UserRoleDirective
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorsInterceptor, multi: true},

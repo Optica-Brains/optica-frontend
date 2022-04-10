@@ -1,3 +1,4 @@
+import { Status } from './status.model';
 import { Branch } from './branch.model';
 import { User } from './user.model';
 export class BatchOrder {
@@ -9,7 +10,7 @@ export class Batch {
     constructor(public id:number, 
         public batch_number:number, 
         public departure_time:string, 
-        public status:string,
+        public status:Status,
         public branch_from?:Branch,
         public delivery_time?:string,
         public branch_to?:Branch,

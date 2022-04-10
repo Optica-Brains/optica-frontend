@@ -4,7 +4,8 @@
     </div>
 
     <div class="text-end pe-3">
-        <button type="button" class="btn createBatchBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn createBatchBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            *appUserRole="[ Role.Manager, Role.Staff ]">
             Create Batch
         </button>
     </div>
@@ -36,8 +37,26 @@
                         <td class="fw-bold">{{batch.departure_time|date:'HH:mm'}}</td>
                         <td class="fw-bold">{{batch.delivery_time|date:'HH:mm'}}</td>
                         <td class="fw-bold">{{batch.branch_staff?.full_name}}</td>
-                        <td class="badge rounded-pill d-inline delivered" [class]="batch_statuses[batch.status]?.class">{{batch_statuses[batch.status]?.title}}</td>
-                        <td><button type="submit" data-bs-toggle="modal" data-bs-target="#batchDetailModal" id="viewDetailBtn" (click)="fetchSingleBatch(batch.id)" class="btn view-order-btn">View Batch</button></td>
+                        <td class="badge rounded-pill d-inline delivered" [class]="batch_statuses[batch.status]?.class">
+                            {{batch_statuses[batch.status]?.title}}</td>
+                        <td>
+                            <button type="submit" data-bs-toggle="modal" data-bs-target="#batchDetailModal"
+                                id="viewDetailBtn" (click)="fetchSingleBatch(batch.id)" class="btn view-order-btn mb-2">
+                                View Batch
+                            </button>
+                            <div *ngIf="batch.status === Status.dispatched">
+                                <button type="submit" data-bs-toggle="modal" title="Mark batch as delivered"
+                                    *appUserRole="[ Role.Manager ]" id="viewDetailBtn" class="btn dispatched-badge">
+                                    Confirm Delivery
+                                </button>
+                            </div>
+                            <div *ngIf="batch.status === Status.dispatched">
+                                <button type="submit" data-bs-toggle="modal" title="Mark batch as delivered"
+                                    *appUserRole="[ Role.Messenger ]" id="viewDetailBtn" class="btn dispatched-badge">
+                                    Delivered
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                 </ng-container>
                 <ng-template #other>
@@ -52,8 +71,8 @@
     </div>
 
     <!-- Modal for displaying single batch details -->
-    <div class="modal fade wholeModal" id="batchDetailModal" tabindex="-1"
-        aria-labelledby="batchDetailModal" aria-hidden="true">
+    <div class="modal fade wholeModal" id="batchDetailModal" tabindex="-1" aria-labelledby="batchDetailModal"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content batchDetailModal">
                 <div class="modal-header">
@@ -73,19 +92,19 @@
                             </div>
                         </ol>
                         <label for="" class="fw-bold">Messenger</label>
-                            <p class="">{{batch.messenger?.full_name}}</p>
+                        <p class="">{{batch.messenger?.full_name}}</p>
                         <label for="" class="fw-bold">Branch From</label>
-                            <p>{{batch.branch_from?.branch_name}},<br>{{batch.branch_from?.branch_location}}</p>
+                        <p>{{batch.branch_from?.branch_name}},<br>{{batch.branch_from?.branch_location}}</p>
                         <label for="" class="fw-bold">Branch To</label>
-                            <p>{{batch.branch_to?.branch_name}},<br>{{batch.branch_to?.branch_location}}</p>
+                        <p>{{batch.branch_to?.branch_name}},<br>{{batch.branch_to?.branch_location}}</p>
                         <label for="" class="fw-bold">Departure Time</label>
-                            <p>{{batch.departure_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
+                        <p>{{batch.departure_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
                         <label for="" class="fw-bold">Delivery Time</label>
-                            <p>{{batch.delivery_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
+                        <p>{{batch.delivery_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
                         <label for="" class="fw-bold">Branch Staff</label>
-                            <p>{{batch.branch_staff?.full_name}}</p>
+                        <p>{{batch.branch_staff?.full_name}}</p>
                         <label for="" class="fw-bold">Status</label>
-                            <p>{{batch.status}}</p>
+                        <p>{{batch.status}}</p>
                     </div>
                 </ng-container>
                 <ng-template #other>
