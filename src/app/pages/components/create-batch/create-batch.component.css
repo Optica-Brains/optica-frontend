@@ -1,0 +1,9 @@
+button.btn-add {
+    background-color: var(--primary);
+}
+
+button.close-btn {
+    background-color: var(--secondary);
+    color: black;
+    font-weight: 700;
+}
