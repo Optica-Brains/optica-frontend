@@ -14,7 +14,7 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
-        path: 'orders',
+        path: 'batches',
         component: OrdersTableComponent
       },
       {
