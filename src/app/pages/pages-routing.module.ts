@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 
-import { TripsPageComponent } from './components/trips-page/trips-page.component';
-
+import { UsersComponent } from './components/users/users.component';
+import { User } from '../models/user.model';
 const routes: Routes = [
   {
     path: '',
@@ -18,8 +18,8 @@ const routes: Routes = [
         component: OrdersTableComponent
       },
       {
-        path: 'trips',
-        component: TripsPageComponent
+        path: 'users',
+        component: UsersComponent
       }
     ]
   }
