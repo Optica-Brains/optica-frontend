@@ -63,3 +63,8 @@ td.badge {
   */
   display: block !important;
 }
+
+button.createBatchBtn {
+  background-color: var(--secondary);
+  font-weight: 700;
+}
