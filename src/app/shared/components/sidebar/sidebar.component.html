@@ -1,7 +1,7 @@
 <div class="flex-column flex-shrink-0 py-3 bg-white sidebar h-100" [class]="{'d-none': !open, 'd-flex': open}"
     style="width: 250px;">
     <div class="mb-5">
-        <div class="text-end pe-2 mb-2">
+        <div class="text-end pe-2 mb-2 d-md-none">
             <button class="navbar-toggler border-0" title="open sidebar" (click)="closeSidebar()">
                 <span class="material-icons">close</span>
             </button>
@@ -12,13 +12,16 @@
         </a>
     </div>
     <ul class="nav nav-pills overflow-y-auto mb-auto">
-        <li class="nav-item pb-2 w-100" *ngFor="let menuItem of menuItems">
-            <a [routerLink]="menuItem.url" class="nav-link d-flex align-items-center bg-transparent"
-                [class]="{active: currentUrl(menuItem.url), 'link-dark': !currentUrl(menuItem.url)}">
-                <span class="material-icons pe-2">{{menuItem.icon}}</span>
-                {{menuItem.title}}
-            </a>
-        </li>
+        <div *ngFor="let menuItem of menuItems" class="w-100 d-block">
+            <li class="nav-item pb-2 w-100"
+                *ngIf="menuItem.manager && authService.hasRole(Role.Manager) || !menuItem.manager">
+                <a [routerLink]="menuItem.url" class="nav-link d-flex align-items-center bg-transparent"
+                    [class]="{active: currentUrl(menuItem.url), 'link-dark': !currentUrl(menuItem.url)}">
+                    <span class="material-icons pe-2">{{menuItem.icon}}</span>
+                    {{menuItem.title}}
+                </a>
+            </li>
+        </div>
     </ul>
     <div class="postion-relative bottom-0">
         <div class="px-3">
