@@ -1,5 +1,10 @@
 import { Branch } from './branch.model';
 import { User } from './user.model';
+export class BatchOrder {
+  constructor(
+    public order_number:string
+  ){}
+}
 export class Batch {
     constructor(public id:number, 
         public batch_number:number, 
@@ -10,6 +15,6 @@ export class Batch {
         public branch_to?:Branch,
         public messenger?:User,
         public branch_staff?:User,
-        public batch_orders?:[]
+        public batch_orders?:BatchOrder[]
         ){}
 }
