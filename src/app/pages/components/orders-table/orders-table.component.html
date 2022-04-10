@@ -9,33 +9,6 @@
         </button>
     </div>
 
-        <div class="modal fade modal-dialog modal-dialog-scrollable" id="batchDetailModal" tabindex="-1"
-            aria-labelledby="batchDetailModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="batchDetailModalLabel"></h5>
-                        <h5 class="modal-title" id="batchDetailModalLabel"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <ng-container *ngIf="!singleBatchLoading; else other">
-                    <div class="modal-body">
-                        {{batch.batch_number}}
-                        {{batch.messenger?.email}}
-                        <div *ngFor="let single of batch.batch_orders">
-                            <li>
-                                <!-- {{single.}} -->
-                            </li>
-                        </div>
-                    </div>
-                    </ng-container>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     <div class="container-fluid table-responsive">
         <table class="table table-borderless text-center orders-table">
             <thead class="schema-names">
@@ -77,5 +50,57 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Modal for displaying single batch details -->
+    <div class="modal fade wholeModal" id="batchDetailModal" tabindex="-1"
+        aria-labelledby="batchDetailModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content batchDetailModal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="batchDetailModalLabel">Batch Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <ng-container *ngIf="!singleBatchLoading; else other">
+                    <div class="modal-body">
+                        <label for="" class="fw-bold">Batch Number</label>
+                        <p>{{batch.batch_number}}</p>
+                        <p class="fw-bold">Batch Order(s)</p>
+                        <ol type="number">
+                            <div *ngFor="let orders of batch.batch_orders">
+                                <li>
+                                    {{orders?.order_number}}
+                                </li>
+                            </div>
+                        </ol>
+                        <label for="" class="fw-bold">Messenger</label>
+                            <p class="">{{batch.messenger?.full_name}}</p>
+                        <label for="" class="fw-bold">Branch From</label>
+                            <p>{{batch.branch_from?.branch_name}},<br>{{batch.branch_from?.branch_location}}</p>
+                        <label for="" class="fw-bold">Branch To</label>
+                            <p>{{batch.branch_to?.branch_name}},<br>{{batch.branch_to?.branch_location}}</p>
+                        <label for="" class="fw-bold">Departure Time</label>
+                            <p>{{batch.departure_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
+                        <label for="" class="fw-bold">Delivery Time</label>
+                            <p>{{batch.delivery_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
+                        <label for="" class="fw-bold">Branch Staff</label>
+                            <p>{{batch.branch_staff?.full_name}}</p>
+                        <label for="" class="fw-bold">Status</label>
+                            <p>{{batch.status}}</p>
+                    </div>
+                </ng-container>
+                <ng-template #other>
+                    <tr>
+                        <td class="text-center" colspan="11">
+                            Loading Batch
+                        </td>
+                    </tr>
+                </ng-template>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary closeModalBtn" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <app-create-batch (addedBatchEmitter)="addBatch($event)"></app-create-batch>

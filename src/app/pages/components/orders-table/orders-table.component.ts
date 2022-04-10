@@ -59,7 +59,6 @@ export class OrdersTableComponent implements OnInit {
     .subscribe((response:any) => {
       this.batch = response
       this.singleBatchLoading = false;
-      console.log(this.batch.batch_orders);
     })
   }
 
