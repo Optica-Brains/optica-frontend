@@ -1,3 +1,4 @@
+import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 import { ErrorsInterceptor } from './../core/interceptors/errors.interceptor';
 import { TokenInterceptor } from './../core/interceptors/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -11,7 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     CreateBatchComponent,
-    DashboardComponent
+    DashboardComponent,
+    OrdersTableComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FormsModule
   ],
   exports: [
-    CreateBatchComponent
+    CreateBatchComponent,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorsInterceptor, multi: true},
