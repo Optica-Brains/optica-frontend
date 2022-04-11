@@ -7,13 +7,15 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateBatchComponent } from './components/create-batch/create-batch.component';
+import { UserRoleDirective } from './directives/user-role.directive';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     CreateBatchComponent,
+    UserRoleDirective,
     DashboardComponent,
-    OrdersTableComponent
+    OrdersTableComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   ],
   exports: [
     CreateBatchComponent,
+    UserRoleDirective,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorsInterceptor, multi: true},

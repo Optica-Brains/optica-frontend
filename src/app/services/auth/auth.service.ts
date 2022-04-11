@@ -1,3 +1,4 @@
+import { Role } from './../../models/role.model';
 import { Router } from '@angular/router';
 import { TokenObject } from './../../models/token-object.model';
 import { User } from './../../models/user.model';
@@ -32,7 +33,7 @@ export class AuthService {
           errorMsg = `There was an error logging you in`;
         } else if (error instanceof HttpErrorResponse) {
           errorMsg = "You provided incorrect login credentials";
-        }        
+        }
 
         return throwError(errorMsg);
       }))
@@ -69,4 +70,7 @@ export class AuthService {
     return !!localStorage.getItem("token");
   }
 
+  hasRole(role: Role) {
+    return this.isUserAuthenticated() && this.getLoggedUserDetails().roles.some((r: Role) => r === role);
+  }
 }

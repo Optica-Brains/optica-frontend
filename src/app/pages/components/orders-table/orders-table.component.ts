@@ -1,3 +1,5 @@
+import { Status } from './../../../models/status.model';
+import { Role } from './../../../models/role.model';
 import { Batch } from './../../../models/batch.model';
 import { catchError, of } from 'rxjs';
 import { AuthService } from './../../../services/auth/auth.service';
@@ -10,7 +12,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders-table.component.css']
 })
 export class OrdersTableComponent implements OnInit {
-
+  Role = Role;
+  Status = Status;
   public loading: boolean = false;
   public singleBatchLoading: boolean = true;
   public userBranch!: Branch;

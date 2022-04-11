@@ -1,6 +1,8 @@
+import { User } from './../../../models/user.model';
+import { Role } from './../../../models/role.model';
 import { AuthService } from './../../../services/auth/auth.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,9 +11,13 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() open:boolean = true;
+  @Input() open: boolean = true;
 
   @Output() sidebarCloseEvent = new EventEmitter();
+
+  user!:User;
+
+  Role = Role;
 
   menuItems = [
     {
@@ -27,27 +33,27 @@ export class SidebarComponent implements OnInit {
     {
       title: "Users",
       icon: "group",
-      url: "/users"
+      url: "/users",
+      manager: true
     },
   ]
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, public authService: AuthService) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getLoggedUserDetails()
   }
 
   currentUrl(url: String) {
-    console.log();
-    
     return this.router.url === url
   }
 
-  logout(){
+  logout() {
     this.authService.logout()
     this.router.navigate(['/login'])
   }
 
-  closeSidebar(){
+  closeSidebar() {
     this.sidebarCloseEvent.emit()
   }
 

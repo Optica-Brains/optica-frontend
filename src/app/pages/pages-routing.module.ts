@@ -1,3 +1,5 @@
+import { RoleGuard } from './../core/guards/role.guard';
+import { Role } from './../models/role.model';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { NgModule } from '@angular/core';
@@ -24,7 +26,13 @@ const routes: Routes = [
       },
       {
         path: 'users',
-        component: UsersComponent
+        component: UsersComponent,
+        canActivate: [RoleGuard],
+        data: {
+          roles: [
+            Role.Manager,
+          ]
+        },
       }
     ]
   }

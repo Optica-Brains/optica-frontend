@@ -13,7 +13,7 @@ button.view-order-btn {
   background-color: var(--secondary);
   font-weight: 550;
 }
-
+.delivered-badge ,
 td.delivered-badge {
   background-color: #c9f6ce;
   color: #448007;
@@ -23,7 +23,7 @@ td.inprogress-badge {
   background-color: #fdeccc;
   color: #965f17;
 }
-
+.dispatched-badge,
 td.dispatched-badge {
   background-color: #cfe0fc;
   color: #094cc4;

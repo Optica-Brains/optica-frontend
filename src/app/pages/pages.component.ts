@@ -17,7 +17,6 @@ export class PagesComponent implements OnInit {
   constructor(private router: Router) {
     const navigation: any = this.router.getCurrentNavigation();
     const state = navigation.extras.state as { data: string };
-    console.log(navigation);
   }
 
   ngOnInit(): void {
