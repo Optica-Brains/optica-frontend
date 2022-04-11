@@ -1,36 +1,50 @@
 
 <div class="container">
-    <div>
+    <div class="d-flex justify-content-between align-items-center">
         <h1 class="mt-4 mb-4">Users</h1>
-        <h5>Create User</h5>
+        <button style="background: var(--secondary);font-weight: bolder;" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Create User</button>
     </div>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Full Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Date joined</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-</div>
+    <div class="container-fluid table-responsive">
+        <table class="table table-borderless text-center orders-table">
+            <thead class="schema-names">
+                <tr style="background: #F3F6F9;">
+                    <th scope="col" class="fw-bold">Id</th>
+                    <th scope="col" class="fw-bold">Full Name</th>
+                    <th scope="col" class="fw-bold">Email</th>
+                    <th scope="col" class="fw-bold">Date Joined</th>
+                    <th scope="col" class="fw-bold">Branch</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td class="fw-normal">Marcos Ochieng</td>
+                        <td class="fw-normal">marcos@gmail.com</td>
+                        <td class="fw-normal">2022/03/-4</td>
+                        <td class="fw-normal">Cornerstone</td>  
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+<!-- USER MODAL -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button style="background: var(--secondary);font-weight: bolder;" type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
