@@ -1,3 +1,4 @@
+import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 import { ErrorsInterceptor } from './../core/interceptors/errors.interceptor';
 import { TokenInterceptor } from './../core/interceptors/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -7,11 +8,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateBatchComponent } from './components/create-batch/create-batch.component';
 import { UserRoleDirective } from './directives/user-role.directive';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     CreateBatchComponent,
-    UserRoleDirective
+    UserRoleDirective,
+    DashboardComponent,
+    OrdersTableComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,7 @@ import { UserRoleDirective } from './directives/user-role.directive';
   ],
   exports: [
     CreateBatchComponent,
-    UserRoleDirective
+    UserRoleDirective,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorsInterceptor, multi: true},

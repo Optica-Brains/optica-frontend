@@ -1,5 +1,6 @@
 import { RoleGuard } from './../core/guards/role.guard';
 import { Role } from './../models/role.model';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,6 +16,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     children: [
+      {
+        path: '',
+        component: DashboardComponent
+      },
       {
         path: 'batches',
         component: OrdersTableComponent
