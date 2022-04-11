@@ -12,7 +12,7 @@
                     <th scope="col" class="fw-bold">Full Name</th>
                     <th scope="col" class="fw-bold">Email</th>
                     <th scope="col" class="fw-bold">Date Joined</th>
-                    <th scope="col" class="fw-bold">Branch</th>
+                    <th scope="col" class="fw-bold">Roles</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@
                         <td class="fw-normal">Marcos Ochieng</td>
                         <td class="fw-normal">marcos@gmail.com</td>
                         <td class="fw-normal">2022/03/-4</td>
-                        <td class="fw-normal">Cornerstone</td>  
+                        <td class="fw-normal">Messenger</td>  
                     </tr>
                 </ng-container>
             </tbody>
@@ -30,8 +30,6 @@
     </div>
 
 <!-- USER MODAL -->
-  
-  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -40,10 +38,20 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <form action="">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input type="text" class="form-control" placeholder="full name...">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="email...">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" placeholder="password...">
+              <label for="role" class="form-label">Role</label>
+              <input type="text" class="form-control" placeholder="role...">
+          </form>
         </div>
         <div class="modal-footer">
           <button style="background: var(--secondary);font-weight: bolder;" type="button" class="btn" data-bs-dismiss="modal">Close</button>
+          <button style="background: var(--primary);font-weight: bolder;color: white;" type="button" class="btn" data-bs-dismiss="modal">Create</button>
         </div>
       </div>
     </div>
