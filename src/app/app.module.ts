@@ -12,7 +12,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { PagesComponent } from './pages/pages.component';
 import { PagesModule } from './pages/pages.module';
-import { TripsPageComponent } from './pages/components/trips-page/trips-page.component';
+import { UsersComponent } from './pages/components/users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,7 @@ import { TripsPageComponent } from './pages/components/trips-page/trips-page.com
     FooterComponent,
     NavbarComponent,
     PagesComponent,
-    TripsPageComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

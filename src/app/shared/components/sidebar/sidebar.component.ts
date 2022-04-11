@@ -20,14 +20,14 @@ export class SidebarComponent implements OnInit {
       url: "/"
     },
     {
-      title: "Orders",
+      title: "Batches",
       icon: "star_outline",
-      url: "/orders"
+      url: "/batches"
     },
     {
-      title: "Trips",
-      icon: "pedal_bike",
-      url: "/trips"
+      title: "Users",
+      icon: "group",
+      url: "/users"
     },
   ]
 

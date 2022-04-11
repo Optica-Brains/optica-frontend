@@ -63,3 +63,25 @@ td.badge {
   */
   display: block !important;
 }
+
+
+button.createBatchBtn {
+  background-color: var(--secondary);
+  font-weight: 700;
+}
+  
+button.closeModalBtn {
+  background-color: var(--primary);
+}
+
+.batchDetailModal {
+  border: 4px solid #ECE531;
+}
+
+.wholeModal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
