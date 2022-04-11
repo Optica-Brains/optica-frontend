@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { CreateBatchComponent } from './components/create-batch/create-batch.component';
 import { UserRoleDirective } from './directives/user-role.directive';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ConfirmDeliveryComponent } from './components/confirm-delivery/confirm-delivery.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     UserRoleDirective,
     DashboardComponent,
     OrdersTableComponent,
+    ConfirmDeliveryComponent,
+    ConfirmDeliveryComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   exports: [
     CreateBatchComponent,
     UserRoleDirective,
+    ConfirmDeliveryComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorsInterceptor, multi: true},
