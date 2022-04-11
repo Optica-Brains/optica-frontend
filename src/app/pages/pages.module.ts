@@ -1,3 +1,4 @@
+import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 import { ErrorsInterceptor } from './../core/interceptors/errors.interceptor';
 import { TokenInterceptor } from './../core/interceptors/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -6,10 +7,13 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateBatchComponent } from './components/create-batch/create-batch.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    CreateBatchComponent
+    CreateBatchComponent,
+    DashboardComponent,
+    OrdersTableComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +21,7 @@ import { CreateBatchComponent } from './components/create-batch/create-batch.com
     FormsModule
   ],
   exports: [
-    CreateBatchComponent
+    CreateBatchComponent,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorsInterceptor, multi: true},
