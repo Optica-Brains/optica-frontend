@@ -2,6 +2,8 @@ import { Role } from './../../../models/role.model';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
 
 
 @Component({
@@ -29,9 +31,9 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     // get all users
-    this.users = this.http.get('http://127.0.0.1:8000/api/users/').subscribe(
-      data => this.users = data      
-    )   
+    this.users = this.http.get(`${environment.apiUrl}/api/users/`).subscribe(
+      data => this.users = data   
+    )    
   }
 
   userGroups(groups:[]){
@@ -45,6 +47,6 @@ export class UsersComponent implements OnInit {
         password : this.password,
         groups : [this.role]
       }
-      this.http.post("http://127.0.0.1:8000/api/users/", data).subscribe((res) => console.log(res)); 
+      this.http.post(`${environment.apiUrl}/api/users/`, data).subscribe((res) => console.log(res)); 
   }
 }
