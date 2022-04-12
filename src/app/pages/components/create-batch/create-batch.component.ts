@@ -42,7 +42,6 @@ export class CreateBatchComponent implements OnInit {
 
   fetchMessangers() {
     this.usersService.fetch_all_users(3).pipe(catchError(error => {
-      console.log(error);
 
       return of({})
     }))

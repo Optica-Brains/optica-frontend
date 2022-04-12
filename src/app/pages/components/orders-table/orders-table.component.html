@@ -97,14 +97,24 @@
                         <p>{{batch.branch_from?.branch_name}},<br>{{batch.branch_from?.branch_location}}</p>
                         <label for="" class="fw-bold">Branch To</label>
                         <p>{{batch.branch_to?.branch_name}},<br>{{batch.branch_to?.branch_location}}</p>
+                        <label for="" class="fw-bold">Status</label>
+                        <p>{{batch.status}}</p>
+                        <label for="" class="fw-bold">Rider Status</label>
+                        <p>{{batch.rider_status}}</p>
+                        <label for="" class="fw-bold">Manager Status</label>
+                        <p>{{batch.manager_status}}</p>
+                        <label for="" class="fw-bold">Branch Staff</label>
+                        <p>{{batch.branch_staff?.full_name}}</p>
                         <label for="" class="fw-bold">Departure Time</label>
                         <p>{{batch.departure_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
                         <label for="" class="fw-bold">Delivery Time</label>
                         <p>{{batch.delivery_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
-                        <label for="" class="fw-bold">Branch Staff</label>
-                        <p>{{batch.branch_staff?.full_name}}</p>
-                        <label for="" class="fw-bold">Status</label>
-                        <p>{{batch.status}}</p>
+                        <label for="" class="fw-bold">Rider Delivery Time</label>
+                        <p>{{batch.rider_delivery_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
+                        <label for="" class="fw-bold">Manager Delivery Time</label>
+                        <p>{{batch.manager_delivey_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
+                        <label for="" class="fw-bold">Created By</label>
+                        <p>{{batch.created_by}}</p>
                     </div>
                 </ng-container>
                 <ng-template #other>
