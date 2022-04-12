@@ -65,13 +65,4 @@ export class OrdersTableComponent implements OnInit {
     })
   }
 
-  riderDelivered(batchId:number){
-    this.batchService.riderDeliver(batchId)
-    .subscribe((response:any) => {
-      console.log(response);
-      this.fetchBatches()
-      this.batch = response
-    })
-  }
-
 }

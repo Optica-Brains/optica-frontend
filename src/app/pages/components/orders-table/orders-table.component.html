@@ -28,47 +28,31 @@
             </thead>
             <tbody>
                 <ng-container *ngIf="!loading; else other">
-                    <tr *ngFor="let bch of batches">
-                        <th scope="row">{{bch.batch_number}}</th>
-                        <td class="fw-bold">{{bch.batch_orders?.length ?? 0}}</td>
-                        <td class="fw-bold">{{bch.messenger?.full_name}}</td>
-                        <td class="fw-bold">{{bch.branch_from?.branch_name}}</td>
-                        <td class="fw-bold">{{bch.branch_to?.branch_name}}</td>
-                        <td class="fw-bold">{{bch.departure_time|date:'HH:mm'}}</td>
-                        <td class="fw-bold">{{bch.delivery_time|date:'HH:mm'}}</td>
-                        <td class="fw-bold">{{bch.branch_staff?.full_name}}</td>
-                        <td class="badge rounded-pill d-inline delivered">
-                            <div class=""
-                                *ngIf="bch.rider_status !== Status.delivered || bch.status === Status.delivered">
-                                <span class="badge rounded-pill d-inline delivered"
-                                    [class]="batch_statuses[bch.status]?.class">
-                                    {{batch_statuses[bch.status]?.title}}
-                                </span>
-                            </div>
-                            <div class=""
-                                *ngIf="bch.rider_status === Status.delivered && bch.status !== Status.delivered">
-                                <span class="badge rounded-pill d-inline delivered"
-                                    [class]="batch_statuses[bch.status]?.class">
-                                    Waiting confirmation
-                                </span>
-                            </div>
-                        </td>
+                    <tr *ngFor="let batch of batches">
+                        <th scope="row">{{batch.batch_number}}</th>
+                        <td class="fw-bold">{{batch.batch_orders?.length ?? 0}}</td>
+                        <td class="fw-bold">{{batch.messenger?.full_name}}</td>
+                        <td class="fw-bold">{{batch.branch_from?.branch_name}}</td>
+                        <td class="fw-bold">{{batch.branch_to?.branch_name}}</td>
+                        <td class="fw-bold">{{batch.departure_time|date:'HH:mm'}}</td>
+                        <td class="fw-bold">{{batch.delivery_time|date:'HH:mm'}}</td>
+                        <td class="fw-bold">{{batch.branch_staff?.full_name}}</td>
+                        <td class="badge rounded-pill d-inline delivered" [class]="batch_statuses[batch.status]?.class">
+                            {{batch_statuses[batch.status]?.title}}</td>
                         <td>
                             <button type="submit" data-bs-toggle="modal" data-bs-target="#batchDetailModal"
-                                id="viewDetailBtn" (click)="fetchSingleBatch(bch.id)" class="btn view-order-btn mb-2">
-                                <small>View Batch</small>
+                                id="viewDetailBtn" (click)="fetchSingleBatch(batch.id)" class="btn view-order-btn mb-2">
+                                View Batch
                             </button>
-                            <div *ngIf="bch.rider_status === Status.delivered && bch.status !== Status.delivered">
-                                <button type="submit" title="Mark batch as delivered"
-                                    *appUserRole="[ Role.Manager, Role.Staff ]" id="viewDetailBtn"
-                                    class="btn dispatched-badge" data-bs-toggle="modal"
-                                    data-bs-target="#updateBatchModal" (click)="fetchSingleBatch(bch.id)">
-                                    <small>Confirm Delivery</small>
+                            <div *ngIf="batch.status === Status.dispatched">
+                                <button type="submit" data-bs-toggle="modal" title="Mark batch as delivered"
+                                    *appUserRole="[ Role.Manager ]" id="viewDetailBtn" class="btn dispatched-badge">
+                                    Confirm Delivery
                                 </button>
                             </div>
-                            <div *ngIf="bch.status === Status.dispatched && bch.rider_status === Status.dispatched">
-                                <button type="submit" title="Mark batch as delivered" (click)="riderDelivered(bch.id)"
-                                    *appUserRole="[ Role.Messenger]" id="viewDetailBtn" class="btn dispatched-badge">
+                            <div *ngIf="batch.status === Status.dispatched">
+                                <button type="submit" data-bs-toggle="modal" title="Mark batch as delivered"
+                                    *appUserRole="[ Role.Messenger ]" id="viewDetailBtn" class="btn dispatched-badge">
                                     Delivered
                                 </button>
                             </div>
@@ -139,5 +123,3 @@
 
 </div>
 <app-create-batch (addedBatchEmitter)="addBatch($event)"></app-create-batch>
-<app-confirm-delivery (updateBatchesEvent)="fetchBatches()" [loading]="singleBatchLoading" [batch]="batch">
-</app-confirm-delivery>
