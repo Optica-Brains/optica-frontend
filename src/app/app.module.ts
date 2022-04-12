@@ -13,6 +13,8 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { PagesComponent } from './pages/pages.component';
 import { PagesModule } from './pages/pages.module';
 import { UsersComponent } from './pages/components/users/users.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,12 @@ import { UsersComponent } from './pages/components/users/users.component';
     FormsModule,
     PagesModule,
     AuthModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
   ],
