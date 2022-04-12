@@ -130,7 +130,7 @@
                         <label for="" class="fw-bold">Manager Delivery Time</label>
                         <p>{{batch.manager_delivey_time|date:'EEEE, MMMM d, y h:mm a'}}</p>
                         <label for="" class="fw-bold">Created By</label>
-                        <p>{{batch.created_by}}</p>
+                        <p>{{batch.created_by?.full_name}}</p>
                     </div>
                 </ng-container>
                 <ng-template #other>
