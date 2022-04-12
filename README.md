@@ -35,6 +35,11 @@ Meta
 ----
 Author:
    * **Joseph Wambua** - *Initial work* - [mutuajoseph](https://github.com/mutuajoseph)
+   * **James Muriithi** - *FrontEnd Developer* - [james-muriithi](https://github.com/james-muriithi)
+   * **Ivy Murithi** - *FrontEnd Developer* - [ivymmurithi](https://github.com/ivymmurithi)
+   * **Marcos Ochieng** - *BackEnd Developer* - [Marcos8060](https://github.com/Marcos8060)
+   * **Sam Momanyi** - *FrontEnd Developer* - [Ardern](https://github.com/Ardern)
+   * **Nobella-Nyarari-Ejiofor** - *BackEnd Developer* - [Nobella-Nyarari-Ejiofor](https://github.com/Nobella-Nyarari-Ejiofor)
 
 
 Status:
