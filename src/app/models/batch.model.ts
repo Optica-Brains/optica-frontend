@@ -16,6 +16,10 @@ export class Batch {
         public branch_to?:Branch,
         public messenger?:User,
         public branch_staff?:User,
-        public batch_orders?:BatchOrder[]
+        public batch_orders?:BatchOrder[],
+        public rider_status?:Status,
+        public rider_delivery_time?:String,
+        public manager_status?:Status,
+        public manager_delivey_time?:String,
         ){}
 }
