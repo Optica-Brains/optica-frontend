@@ -41,7 +41,6 @@ export class OrdersTableComponent implements OnInit {
   fetchBatches() {
     this.loading = true
     this.batchService.fetchBatches(this.userBranch.id).pipe(catchError((error) => {
-      console.log(error);
       this.loading = false
       return of({})
     }))
@@ -68,7 +67,6 @@ export class OrdersTableComponent implements OnInit {
   riderDelivered(batchId:number){
     this.batchService.riderDeliver(batchId)
     .subscribe((response:any) => {
-      console.log(response);
       this.fetchBatches()
       this.batch = response
     })

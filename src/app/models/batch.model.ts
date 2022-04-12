@@ -18,8 +18,9 @@ export class Batch {
         public branch_staff?:User,
         public batch_orders?:BatchOrder[],
         public rider_status?:Status,
-        public rider_delivery_time?:String,
+        public rider_delivery_time?:string,
         public manager_status?:Status,
-        public manager_delivey_time?:String,
+        public manager_delivey_time?:string,
+        public created_by?: User
         ){}
 }
