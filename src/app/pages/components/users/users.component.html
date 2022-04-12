@@ -17,12 +17,12 @@
             </thead>
             <tbody>
                 <ng-container>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td class="fw-normal">Marcos Ochieng</td>
-                        <td class="fw-normal">marcos@gmail.com</td>
-                        <td class="fw-normal">2022/03/-4</td>
-                        <td class="fw-normal">Messenger</td>  
+                    <tr *ngFor="let user of users">
+                        <th scope="row">{{ user.id }}</th>
+                        <td class="fw-normal">{{ user.full_name}}</td>
+                        <td class="fw-normal">{{ user.email }}</td>
+                        <td class="fw-normal">{{ user.created_at | date }}</td>
+                        <td class="fw-normal">{{ userGroups(user.groups) }}</td> 
                     </tr>
                 </ng-container>
             </tbody>
@@ -40,18 +40,22 @@
         <div class="modal-body">
           <form action="">
               <label for="fullname" class="form-label">Full Name</label>
-              <input type="text" class="form-control" placeholder="full name...">
+              <input type="text" name="fullname" [(ngModel)]="fullname" class="form-control" placeholder="full name...">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" placeholder="email...">
+              <input type="email" name="email" [(ngModel)]="email" class="form-control" placeholder="email...">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" placeholder="password...">
+              <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="password...">
               <label for="role" class="form-label">Role</label>
-              <input type="text" class="form-control" placeholder="role...">
+              <select name="role" [(ngModel)]="role" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option [value]="Role.Manager">Manager</option>
+                <option [value]="Role.Staff">Staff</option>
+                <option [value]="Role.Messenger">Messenger</option>
+              </select>
           </form>
         </div>
         <div class="modal-footer">
           <button style="background: var(--secondary);font-weight: bolder;" type="button" class="btn" data-bs-dismiss="modal">Close</button>
-          <button style="background: var(--primary);font-weight: bolder;color: white;" type="button" class="btn" data-bs-dismiss="modal">Create</button>
+          <button (click)="createUser()" style="background: var(--primary);font-weight: bolder;color: white;" type="submit" value="submit" class="btn mt-2" data-bs-dismiss="modal">Create</button>
         </div>
       </div>
     </div>
