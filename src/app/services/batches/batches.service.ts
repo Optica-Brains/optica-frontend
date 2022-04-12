@@ -49,4 +49,22 @@ export class BatchesService {
       return throwError(`There was an error fetching a batch`)
     }))
   }
+
+  riderDeliver(id:number){
+    return this.http.post<Batch>(`${environment.apiUrl}/api/rider/${id}/`, {})
+    .pipe(batch => {return batch})
+    .pipe(catchError(error => {
+      return throwError(`There was an error updating the batch`)
+    }))
+  }
+
+  managerDeliverConfirm(id:number, date:String){
+    return this.http.post<Batch>(`${environment.apiUrl}/api/manager/${id}/`, {
+      date
+    })
+    .pipe(batch => {return batch})
+    .pipe(catchError(error => {
+      return throwError(`There was an error updating the batch`)
+    }))
+  }
 }

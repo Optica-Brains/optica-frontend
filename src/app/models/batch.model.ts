@@ -17,10 +17,10 @@ export class Batch {
         public messenger?:User,
         public branch_staff?:User,
         public batch_orders?:BatchOrder[],
-        public manager_delivey_time?: string,
-        public manager_status?:Status,
-        public rider_delivery_time?:string,
         public rider_status?:Status,
+        public rider_delivery_time?:String,
+        public manager_status?:Status,
+        public manager_delivey_time?:String,
         public created_by?: string
         ){}
 }
