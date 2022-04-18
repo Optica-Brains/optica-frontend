@@ -58,7 +58,8 @@
                                 id="viewDetailBtn" (click)="fetchSingleBatch(bch.id)" class="btn view-order-btn mb-2">
                                 <small>View Batch</small>
                             </button>
-                            <div *ngIf="bch.rider_status === Status.delivered && bch.status !== Status.delivered">
+                            <div
+                                *ngIf="bch.rider_status === Status.delivered && bch.status !== Status.delivered && bch.branch_to?.id == userBranch.id">
                                 <button type="submit" title="Mark batch as delivered"
                                     *appUserRole="[ Role.Manager, Role.Staff ]" id="viewDetailBtn"
                                     class="btn dispatched-badge" data-bs-toggle="modal"
