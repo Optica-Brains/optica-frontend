@@ -19,6 +19,7 @@ export class OrdersTableComponent implements OnInit {
   public userBranch!: Branch;
   public batches!: Batch[];
   public batch!: Batch;
+  public success: string = '';
 
   batch_statuses : any = {
     delivered: {
@@ -54,6 +55,10 @@ export class OrdersTableComponent implements OnInit {
 
   addBatch(batch:any){
     this.batches.unshift(batch)
+    this.success = "Batch created successfully!"
+    setTimeout(() => {
+      this.success = ''
+    }, 1500);
   }
 
   fetchSingleBatch(id: number) {

@@ -2,6 +2,11 @@
     <div class="container-fluid titles-headings">
         <p class="h1 orders-title">Batches</p>
     </div>
+    
+    <div *ngIf="success" class="alert alert-success alert-dismissible fade show" id="success-alert" role="alert">
+        {{success}}
+        <button type="button" class="btn-close no-outline" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
     <div class="text-end pe-3">
         <button type="button" class="btn createBatchBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"
