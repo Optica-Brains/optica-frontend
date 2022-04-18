@@ -34,7 +34,7 @@ export class UsersComponent implements OnInit {
   }
 
   fetchUsers(){
-    this.users = this.http.get(`${environment.apiUrl}/api/users/`).subscribe(
+    this.http.get(`${environment.apiUrl}/api/users/`).subscribe(
       data => this.users = data   
     )    
   }
