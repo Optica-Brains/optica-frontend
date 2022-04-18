@@ -52,7 +52,7 @@ export class UsersComponent implements OnInit {
         groups : [this.role]
       }
       
-      this.http.post(`${environment.apiUrl}/api/users/`, data).subscribe((res) => console.log(res));
+      this.http.post(`${environment.apiUrl}/api/users/`, data).subscribe((res) => this.fetchUsers());
        
       this.success = 'User created successfully!'
       setTimeout(() => {
