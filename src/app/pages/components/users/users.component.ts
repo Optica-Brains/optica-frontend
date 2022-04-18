@@ -19,6 +19,7 @@ export class UsersComponent implements OnInit {
   public email!: any;
   public password!: string;
   public role!: string;
+  public success: string = '';
 
   public Role = Role
 
@@ -50,6 +51,13 @@ export class UsersComponent implements OnInit {
         password : this.password,
         groups : [this.role]
       }
-      this.http.post(`${environment.apiUrl}/api/users/`, data).subscribe((res) => this.fetchUsers()); 
+      
+      this.http.post(`${environment.apiUrl}/api/users/`, data).subscribe((res) => console.log(res));
+       
+      this.success = 'User created successfully!'
+      setTimeout(() => {
+        this.success = ''
+      }, 1500);
+    
   }
 }
