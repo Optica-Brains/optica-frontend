@@ -29,9 +29,12 @@ export class UsersComponent implements OnInit {
 
   users:any
 
-
+  
   ngOnInit(): void {
-    // get all users
+    this.fetchUsers() ;   
+  }
+
+  fetchUsers(){
     this.users = this.http.get(`${environment.apiUrl}/api/users/`).subscribe(
       data => this.users = data   
     )    
@@ -48,11 +51,13 @@ export class UsersComponent implements OnInit {
         password : this.password,
         groups : [this.role]
       }
+      
       this.http.post(`${environment.apiUrl}/api/users/`, data).subscribe((res) => console.log(res));
        
       this.success = 'User created successfully!'
       setTimeout(() => {
         this.success = ''
       }, 1500);
+    
   }
 }
