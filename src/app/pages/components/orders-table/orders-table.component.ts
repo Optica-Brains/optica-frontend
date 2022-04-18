@@ -55,7 +55,7 @@ export class OrdersTableComponent implements OnInit {
 
   addBatch(batch:any){
     this.batches.unshift(batch)
-    this.success = "Batch created!"
+    this.success = "Batch created successfully!"
     setTimeout(() => {
       this.success = ''
     }, 1500);
