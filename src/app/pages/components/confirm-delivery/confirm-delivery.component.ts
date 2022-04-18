@@ -1,6 +1,7 @@
 import { Batch } from './../../../models/batch.model';
 import { BatchesService } from './../../../services/batches/batches.service';
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, SimpleChanges } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-confirm-delivery',
@@ -28,10 +29,10 @@ export class ConfirmDeliveryComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
+
     if (changes['batch'].currentValue) {
       if (typeof this.batch.rider_delivery_time === 'string') {
-        const isoString = new Date(this.batch.rider_delivery_time).toISOString()
-        this.date = isoString.substring(0, isoString.length - 1)
+        this.date = moment.utc(this.batch.rider_delivery_time).local().format("YYYY-MM-DDTHH:mm")
       }
     }
   }
